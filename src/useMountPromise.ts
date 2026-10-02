@@ -11,6 +11,5 @@ export function useMountPromise(promise: Promise<any> | (() => Promise<any>)) {
     } catch (error) {
       console.warn('useMountPromise failed:', error);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }

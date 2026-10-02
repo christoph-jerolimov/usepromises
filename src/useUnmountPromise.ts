@@ -13,6 +13,5 @@ export function useUnmountPromise(promise: Promise<any> | (() => Promise<any>)) 
         console.warn('useUnmountPromise failed:', error);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }

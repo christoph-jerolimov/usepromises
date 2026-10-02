@@ -19,7 +19,6 @@ export function usePromise<Resolved, Rejected = Error>(
     } catch (error) {
       dispatch({ type: 'REJECTED', error: error as Rejected });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
   return state;
