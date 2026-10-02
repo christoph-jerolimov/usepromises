@@ -1,6 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { defaultReducer, initialState } from './reducer.js';
-import { PromiseAction } from './types.js';
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
+
+import { defaultReducer, initialState } from './reducer.ts';
+import type { PromiseAction } from './types.ts';
 
 describe('defaultReducer', () => {
   it('changes state for resolved action', () => {
@@ -8,12 +10,12 @@ describe('defaultReducer', () => {
     const action: PromiseAction<string, never> = { type: 'RESOLVED', value: 'yeah' };
     const nextState = defaultReducer(prevState, action);
 
-    expect(prevState).toEqual({
+    assert.deepEqual(prevState, {
       isPending: true,
       isResolved: false,
       isRejected: false,
     });
-    expect(nextState).toEqual({
+    assert.deepEqual(nextState, {
       isPending: false,
       isResolved: true,
       isRejected: false,
@@ -26,12 +28,12 @@ describe('defaultReducer', () => {
     const action: PromiseAction<never, string> = { type: 'REJECTED', error: 'nope' };
     const nextState = defaultReducer(prevState, action);
 
-    expect(prevState).toEqual({
+    assert.deepEqual(prevState, {
       isPending: true,
       isResolved: false,
       isRejected: false,
     });
-    expect(nextState).toEqual({
+    assert.deepEqual(nextState, {
       isPending: false,
       isResolved: false,
       isRejected: true,

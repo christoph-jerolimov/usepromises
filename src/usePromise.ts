@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { PromiseResult } from './types.js';
-import { defaultReducer, initialState } from './reducer.js';
+import type { PromiseResult } from './types.ts';
+import { defaultReducer, initialState } from './reducer.ts';
 
 export function usePromise<Resolved, Rejected = Error>(
   promise: Promise<Resolved> | (() => Promise<Resolved>),
