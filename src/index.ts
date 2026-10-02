@@ -1,3 +1,3 @@
-export * from './usePromise.js';
-export * from './useMountPromise.js';
-export * from './useUnmountPromise.js';
+export * from './usePromise.ts';
+export * from './useMountPromise.ts';
+export * from './useUnmountPromise.ts';

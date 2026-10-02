@@ -1,4 +1,4 @@
-import { PromiseResult, PromiseAction } from './types.js';
+import type { PromiseResult, PromiseAction } from './types.ts';
 
 export function defaultReducer<Resolved, Rejected>(
   prevState: PromiseResult<Resolved, Rejected>,
