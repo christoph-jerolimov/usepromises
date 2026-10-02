@@ -51,7 +51,7 @@
   "homepage": "https://github.com/christoph-jerolimov/usepromises",
   "repository": {
     "type": "github",
-    "url": "https://github.com/christoph-jerolimov/usepromises"
+    "url": "git+https://github.com/christoph-jerolimov/usepromises.git"
   },
   "bugs": {
     "url": "https://github.com/christoph-jerolimov/usepromises/issues"
