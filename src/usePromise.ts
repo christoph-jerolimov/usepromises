@@ -1,16 +1,13 @@
 import * as React from 'react';
 
-import { PromiseResult, PromiseReducer } from './types.js';
+import { PromiseResult } from './types.js';
 import { defaultReducer, initialState } from './reducer.js';
 
 export function usePromise<Resolved, Rejected = Error>(
   promise: Promise<Resolved> | (() => Promise<Resolved>),
   deps?: React.DependencyList
 ): PromiseResult<Resolved, Rejected> {
-  const [state, dispatch] = React.useReducer<PromiseReducer<Resolved, Rejected>>(
-    defaultReducer,
-    initialState
-  );
+  const [state, dispatch] = React.useReducer(defaultReducer<Resolved, Rejected>, initialState);
 
   React.useEffect(() => {
     try {
