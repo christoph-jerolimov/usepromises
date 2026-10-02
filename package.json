@@ -1,6 +1,7 @@
 {
   "name": "usepromises",
-  "version": "0.5.0",
+  "version": "0.6.0",
+  "description": "React and React Native hooks to consume a Promise (similar to useEffect) with full TypeScript support",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -47,13 +48,13 @@
     "trailingComma": "es5"
   },
   "author": "Christoph Jerolimov",
-  "homepage": "https://github.com/jerolimov/usepromises",
+  "homepage": "https://github.com/christoph-jerolimov/usepromises",
   "repository": {
     "type": "github",
-    "url": "https://github.com/jerolimov/usepromises"
+    "url": "https://github.com/christoph-jerolimov/usepromises"
   },
   "bugs": {
-    "url": "https://github.com/jerolimov/usepromises/issues"
+    "url": "https://github.com/christoph-jerolimov/usepromises/issues"
   },
   "keywords": [
     "react",
