@@ -1,5 +1,6 @@
-import { defaultReducer, initialState } from './reducer';
-import { PromiseAction } from './types';
+import { describe, it, expect } from 'vitest';
+import { defaultReducer, initialState } from './reducer.js';
+import { PromiseAction } from './types.js';
 
 describe('defaultReducer', () => {
   it('changes state for resolved action', () => {

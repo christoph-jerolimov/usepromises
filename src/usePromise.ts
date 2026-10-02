@@ -1,29 +1,23 @@
 import * as React from 'react';
 
-import { PromiseResult, PromiseReducer } from './types';
-import { defaultReducer, initialState } from './reducer';
+import { PromiseResult } from './types.js';
+import { defaultReducer, initialState } from './reducer.js';
 
 export function usePromise<Resolved, Rejected = Error>(
   promise: Promise<Resolved> | (() => Promise<Resolved>),
   deps?: React.DependencyList
 ): PromiseResult<Resolved, Rejected> {
-  const [state, dispatch] = React.useReducer<PromiseReducer<Resolved, Rejected>>(
-    defaultReducer,
-    initialState
-  );
+  const [state, dispatch] = React.useReducer(defaultReducer<Resolved, Rejected>, initialState);
 
   React.useEffect(() => {
     try {
-      if (typeof promise === 'function') {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        promise = promise();
-      }
-      promise.then(
-        value => dispatch({ type: 'RESOLVED', value }),
-        error => dispatch({ type: 'REJECTED', error })
+      const pending = typeof promise === 'function' ? promise() : promise;
+      pending.then(
+        (value) => dispatch({ type: 'RESOLVED', value }),
+        (error) => dispatch({ type: 'REJECTED', error })
       );
     } catch (error) {
-      dispatch({ type: 'REJECTED', error });
+      dispatch({ type: 'REJECTED', error: error as Rejected });
     }
   }, deps);
 

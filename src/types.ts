@@ -6,8 +6,7 @@ export type PromiseResult<Resolved, Rejected> =
   | { isPending: false; isResolved: false; isRejected: true; error: Rejected };
 
 export type PromiseAction<Resolved, Rejected> =
-  | { type: 'RESOLVED'; value: Resolved }
-  | { type: 'REJECTED'; error: Rejected };
+  { type: 'RESOLVED'; value: Resolved } | { type: 'REJECTED'; error: Rejected };
 
 export type PromiseReducer<Resolved, Rejected> = React.Reducer<
   PromiseResult<Resolved, Rejected>,
